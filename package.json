@@ -1,0 +1,23 @@
+{
+  "name": "pixilectric",
+  "version": "0.0.1",
+  "description": "An experiment with Electron and Pixi.js",
+  "author": "David Wilson",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
+  },
+  "dependencies": {
+    "pixi.js": "^4.8.1"
+  },
+  "devDependencies": {
+    "electron": "^2.0.7",
+    "electron-builder": "^20.27.1",
+    "electron-webpack": "^2.1.2",
+    "webpack": "^4.16.5"
+  }
+}
