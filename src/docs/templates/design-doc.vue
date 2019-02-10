@@ -2,7 +2,9 @@
   <div class="doc-root">
     <div class="menu-wrapper">
       <menu class="main-menu">
-        <h4>table of contents</h4>
+        <h4 class="menu-header">
+          table of contents
+        </h4>
         <router-link 
           :key="route.name"
           class="nav-link"
@@ -31,7 +33,7 @@
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Rubik:400,700|Nanum+Gothic:400,700');
+  @import url('https://fonts.googleapis.com/css?family=Rubik:400,700|Muli:300,400,700');
   * {
     margin: 0;
     padding: 0;
@@ -45,7 +47,12 @@
     height: 100%;
     margin: 0;
     padding: 0;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 300;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
   }
   p {
     font-size: 1rem;
@@ -77,13 +84,16 @@
     font-size: 16px;
     font-weight: 700;
   }
+
+
   .doc-root{
     display: grid;
     grid-template-columns: 264px 1fr;
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: "Nanum Gothic";
+    font-family: "Muli";
+    color: rgb(32,35,40);
   }
   .menu-wrapper {
     margin: 0;
@@ -94,13 +104,33 @@
     display: flex;
     flex-direction: column;
   }
+  .menu-header {
+    margin-bottom: .75rem;
+  }
   .nav-link{
     position: relative;
-    margin-top: .5rem;
+    padding: .5rem 0 .5rem 1rem;
     text-transform: capitalize;
+    color: rgb(95,102,104);
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: none;
+    border-left: 3px solid rgb(174,178,178);
+    box-sizing: border-box;
+  }
+  .router-link-exact-active{
+    color: rgb(22,148,150);
+    border-left-color: rgb(22,148,150);
   }
   .content-wrapper {
     padding: 24px 48px;
     background: white;
+  }
+  .content-wrapper h3{
+    margin-top: 3rem;
+    text-transform: capitalize;
+  }
+  .content-wrapper h4 {
+    margin-top: 1.5rem;
   }
 </style>

@@ -19,3 +19,21 @@ And of course measurements and ingredient ratios are critical to a well concocte
 Once completed, a concoction will bear a mark of the level of success with a rank. The accuracy of the ingredient ratios applied and the artfulness in preparing the concoction affect the ranking applied either positively or negatively. A lower ranked concotion will have a fractional level of effectiveness where it can be determined in a partial manner. 
 
 Herbology is a skill that is widely practiced by many adventurers and civilians alike. Certain enthusiasts are eager to share their knowledge, while more experienced practitioners may guard their secrets carefully, perhaps even keeping their meticulously curated recipes under lock and key. 
+
+### [Materials](#herb-materials)
+
+##### [Roots](#roots)
+
+| name          | description       | properties       |
+| ------------- |:-----------------:|:-----------------|
+
+
+##### [Leaves](#roots)
+
+| name          | description       | properties       |
+| ------------- |:-----------------:|:-----------------|
+
+##### [Flowers](#roots)
+
+| name          | description       | properties       |
+| ------------- |:-----------------:|:-----------------|
