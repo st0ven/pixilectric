@@ -9,15 +9,30 @@
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
     "dist": "yarn compile && electron-builder",
-    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null",
+    "design-doc": "webpack-dev-server -d --hot --config webpack.documentation.config.js"
   },
   "dependencies": {
-    "pixi.js": "^4.8.1"
+    "electron-webpack-vue": "^2.2.3",
+    "markdown-loader": "^5.0.0",
+    "marked": "^0.6.0",
+    "pixi.js": "^4.8.1",
+    "vue": "^2.6.4"
   },
   "devDependencies": {
     "electron": "^2.0.7",
     "electron-builder": "^20.27.1",
     "electron-webpack": "^2.1.2",
-    "webpack": "^4.16.5"
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.16.5",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "electronWebpack": {
+    "commonSourceDirectory": "src/common",
+    "title": "RPG 2019 Project",
+    "main": {
+      "webpackConfig": "custom.webpack.additions.js"
+    }
   }
 }
