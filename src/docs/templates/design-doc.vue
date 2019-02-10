@@ -1,24 +1,32 @@
 <template>
   <div class="doc-root">
     <div class="menu-wrapper">
-      <menu>
+      <menu class="main-menu">
         <h4>table of contents</h4>
+        <router-link 
+          :key="route.name"
+          class="nav-link"
+          v-for="route in routes"
+          :to="{
+            name: route.name,
+            params: { pageName: route.name }
+          }">
+            {{ route.name }}
+          </router-link>
       </menu>
     </div>
     <div class="content-wrapper">
-      <Herbology/>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-  import * as page from "@pages/sample.md";
-  import Herbology from "./herbology";
   export default {
     name: "App",
-    components: {
-      Herbology
-    }
+    props: [
+      'routes'
+    ]
   }
 </script>
 
@@ -81,7 +89,15 @@
     margin: 0;
     padding: 24px;
     background: #eaeced;
-    
+  }
+  .main-menu {
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-link{
+    position: relative;
+    margin-top: .5rem;
+    text-transform: capitalize;
   }
   .content-wrapper {
     padding: 24px 48px;

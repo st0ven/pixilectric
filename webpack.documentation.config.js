@@ -69,8 +69,9 @@ module.exports = {
   ],
   resolve: {
     alias: {
-        "@pages": path.join( __dirname, 'src/docs/pages/' )
+        "@pages": path.join( __dirname, 'src/docs/pages/' ),
+        "@templates": path.join( __dirname, 'src/docs/templates' )
     },
-    extensions: ['.js', '.css', '.styl', '.vue']
+    extensions: ['.js', '.css', '.styl', '.vue', '.md']
   }
 }
