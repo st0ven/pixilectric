@@ -1,7 +1,7 @@
 <template>
   <div class="doc-root">
     <div class="menu-wrapper">
-      <menu class="main-menu">
+      <nav class="main-menu">
         <h4 class="menu-header">
           table of contents
         </h4>
@@ -9,13 +9,28 @@
           :key="route.name"
           class="nav-link"
           v-for="route in routes"
-          :to="{
-            name: route.name,
-            params: { pageName: route.name }
-          }">
+          :to="route.path">
             {{ route.name }}
+            <ul 
+              class="subnav-list"
+              v-if="
+                route.children && 
+                route.children.length
+              ">
+              <router-link
+                class="subnav-link"
+                v-for="topic in route.children"
+                @mounted="mountee"
+                :key="topic.name"
+                :to="{
+                  hash: `#${topic.name}`,
+                  params: { topic: topic.name }
+                }">
+                  {{ topic.name }}
+              </router-link>
+            </ul>
           </router-link>
-      </menu>
+      </nav>
     </div>
     <div class="content-wrapper">
       <router-view></router-view>
@@ -28,7 +43,12 @@
     name: "App",
     props: [
       'routes'
-    ]
+    ],
+    methods: {
+      mountee(topics){
+        console.log(topics);
+      }
+    }
   }
 </script>
 
@@ -103,18 +123,27 @@
   .main-menu {
     display: flex;
     flex-direction: column;
+    position: fixed;
+    overflow: scroll;
   }
   .menu-header {
     margin-bottom: .75rem;
   }
-  .nav-link{
+  .subnav-list{
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-link,
+  .subnav-link {
     position: relative;
     padding: .5rem 0 .5rem 1rem;
-    text-transform: capitalize;
     color: rgb(95,102,104);
     font-weight: 400;
     font-size: 16px;
     text-decoration: none;
+  }
+  .nav-link{
+    text-transform: capitalize;
     border-left: 3px solid rgb(174,178,178);
     box-sizing: border-box;
   }
@@ -122,6 +151,7 @@
     color: rgb(22,148,150);
     border-left-color: rgb(22,148,150);
   }
+
   .content-wrapper {
     padding: 24px 48px;
     background: white;

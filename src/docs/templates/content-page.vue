@@ -4,14 +4,20 @@
 </template>
 
 <script>
-  import markdown from "@pages/herbology";
   export default {
     name: "Herbology",
-    props: [ 'pageName', 'name' ],
+    props: [ 'topic' ],
     computed: {
       content(){
-        return require( `@pages/${this.pageName}` );
+        return require( `@pages/${ this.$route.name }` );
       }
+    },
+    mounted(){
+      console.log(this.$route);
+    },
+    beforeRouterEnter(){
+      console.log('before');
     }
   }
+
 </script>
